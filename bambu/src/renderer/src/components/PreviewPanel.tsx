@@ -1,0 +1,7 @@
+export default function PreviewPanel() {
+    return(
+        <div className="flex h-full w-[30%] bg-[#2E2E26]">
+            
+        </div>
+    )
+}
