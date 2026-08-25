@@ -11,7 +11,7 @@ export default function EmptyLibrary() {
                 Add your game with the top button and follow the steps!
             </p>
             <p className="text-base text-[#5F5E5A] italic">
-                "I only paid in bamboo, you know?" - Bao
+                "I only get paid in bamboo, you know?" - Bao
             </p>
         </div>
     )

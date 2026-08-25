@@ -1,6 +1,6 @@
 export default function PreviewPanel() {
     return(
-        <div className="flex h-full w-[30%] bg-[#2E2E26]">
+        <div className="flex h-full w-[30%] bg-neutral-900 shadow-md">
             
         </div>
     )
