@@ -1,9 +1,20 @@
+import { useState } from "react";
 import EmptyLibrary from "./EmptyLibrary"
+import Modal from "./Modal";
 
 export default function LibraryPanel() {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [gamePath, setGamePath] = useState<string | null>(null);
+    
     const handleAddGame = async () => {
-        const path = await window.api.pickExecutable()
-        console.log(path)
+        const path = await window.api.pickExecutable();
+        console.log(path);
+
+        if(path) {
+            setGamePath(path);
+            setIsModalOpen(true);
+        }
     }
 
     return(

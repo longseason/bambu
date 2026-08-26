@@ -3,7 +3,9 @@ import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
-  pickExecutable: () => ipcRenderer.invoke('dialog:openFile')
+  pickExecutable: () => ipcRenderer.invoke('dialog:openFile'),
+  searchGame: (name: string) => ipcRenderer.invoke('steamgriddb:search', name),
+  getArtwork: (id: number) => ipcRenderer.invoke('steamgriddb:artwork', id)
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

@@ -5,6 +5,8 @@ declare global {
     electron: ElectronAPI
     api: {
       pickExecutable: () => Promise<string | undefined>
+      searchGame: (name: string) => Promise<any>
+      getArtwork: (id: number) => Promise<any>
     }
   }
 }

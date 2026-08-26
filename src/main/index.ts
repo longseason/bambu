@@ -64,6 +64,31 @@ app.whenReady().then(() => {
   ipcMain.on('ping', () => console.log('pong'))
   ipcMain.handle('dialog:openFile', handleFileOpen)
 
+  // steamgriddb stuff here
+  const sgdbBaseUrl='https://www.steamgriddb.com/api/v2'
+  const sgdbHeader= {
+    Authorization: `Bearer ${process.env.STEAMGRIDDB_API_KEY}`,
+  }
+
+  async function searchGame(name: string) {
+    const res = await fetch(`${sgdbBaseUrl}/search/autocomplete/${encodeURIComponent(name)}`, {
+      headers: sgdbHeader,
+    })
+    const json = await res.json()
+    return json.data
+  }
+
+  async function getArtwork(id: number) {
+    const res = await fetch(`${sgdbBaseUrl}/grids/game/${id}`, {
+      headers: sgdbHeader,
+    })
+    const json = await res.json()
+    return json.data
+  }
+
+  ipcMain.handle('steamgriddb:search', (_, name: string) => searchGame(name))
+  ipcMain.handle('steamgriddb:artwork', (_, id: number) => getArtwork(id))
+
   createWindow()
 
   app.on('activate', function () {
