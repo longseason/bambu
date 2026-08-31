@@ -1,8 +1,9 @@
 import { useState } from "react";
 import EmptyLibrary from "./EmptyLibrary"
+import GameCard from "./GameCard";
 import Modal from "./Modal";
 
-export default function LibraryPanel() {
+export default function LibraryPanel({ games, setGames, setSelectedGame }) {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [gamePath, setGamePath] = useState<string | null>(null);
@@ -30,8 +31,15 @@ export default function LibraryPanel() {
                     Add Game
                 </button>
             </div>
-            <div className="flex-1">
-                <EmptyLibrary />
+            <div className="flex flex-wrap gap-4 p-4">
+                {isModalOpen && <Modal gamePath={gamePath} games={games} setGames={setGames} setIsModalOpen={setIsModalOpen} />}
+
+                {games.length > 0 
+                ? games.map(game => (
+                    <GameCard key={game.id} {...game} onClick={() => setSelectedGame(game)} />
+                    ))
+                : <EmptyLibrary />
+                }
             </div>
         </div>
     )

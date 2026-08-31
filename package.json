@@ -25,6 +25,7 @@
     "@electron-toolkit/utils": "^4.0.0",
     "@tabler/icons-react": "^3.46.0",
     "@tailwindcss/vite": "^4.3.3",
+    "dotenv": "^17.4.2",
     "electron-updater": "^6.3.9",
     "tailwindcss": "^4.3.3"
   },

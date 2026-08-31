@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow, ipcMain, dialog } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import 'dotenv/config'
 
 // code snippet from electron docs:
 // ref: https://www.electronjs.org/docs/latest/tutorial/ipc#understanding-context-isolated-processes
