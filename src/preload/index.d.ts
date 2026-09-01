@@ -7,6 +7,7 @@ declare global {
       pickExecutable: () => Promise<string | undefined>
       searchGame: (name: string) => Promise<any>
       getArtwork: (id: number) => Promise<any>
+      launchGame: (exePath: string) => Promise<void>
     }
   }
 }

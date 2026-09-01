@@ -32,11 +32,11 @@ export default function Modal({ gamePath, games, setGames, setIsModalOpen}) {
                 onChange={(e) => setGameName(e.target.value)}
                 />
                 <button onClick={search}
-                className="self-start bg-neutral-200 hover:bg-neutral-300 text-neutral-900 text-sm rounded px-3 py-1">
+                className="items-center bg-neutral-200 hover:bg-neutral-300 text-neutral-900 text-sm rounded px-3 py-1">
                     Confirm game?
                 </button>
                 <img src={cover} alt="game preview"
-                className="w-full aspect-2/3 object-cover rounded bg-neutral-100"
+                className="w-32 aspect-2/3 object-cover rounded bg-neutral-100 self-center"
                 />
                 <button onClick={addGame} className="bg-emerald-600 hover:bg-emerald-500 text-white rounded px-3 py-2">
                     Add game to library

@@ -31,13 +31,17 @@ export default function LibraryPanel({ games, setGames, setSelectedGame }) {
                     Add Game
                 </button>
             </div>
-            <div className="flex flex-wrap gap-4 p-4">
+            <div className="flex-1 min-h-0">
                 {isModalOpen && <Modal gamePath={gamePath} games={games} setGames={setGames} setIsModalOpen={setIsModalOpen} />}
 
                 {games.length > 0 
-                ? games.map(game => (
-                    <GameCard key={game.id} {...game} onClick={() => setSelectedGame(game)} />
-                    ))
+                ? (
+                    <div className="flex flex-wrap gap-4 p-4">
+                        {games.map(game => (
+                            <GameCard key={game.id} {...game} onClick={() => setSelectedGame(game)} />
+                        ))}
+                    </div>
+                )
                 : <EmptyLibrary />
                 }
             </div>

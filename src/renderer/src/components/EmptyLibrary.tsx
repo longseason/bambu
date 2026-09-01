@@ -2,7 +2,7 @@ import bao from '../assets/bao.png'
 
 export default function EmptyLibrary() {
     return(
-        <div className="flex h-full flex-col items-center justify-start pt-32 gap-3 text-center">
+        <div className="flex h-full flex-col items-center justify-center pb-32 gap-3 text-center">
             <img src={bao} className="w-32 h-32 object-contain mb-2" />
             <p className="text-2xl font-semibold text-[#173404]">
                 No bamboo in sight...

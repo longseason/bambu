@@ -8,7 +8,8 @@ import 'dotenv/config'
 // ref: https://www.electronjs.org/docs/latest/tutorial/ipc#understanding-context-isolated-processes
 async function handleFileOpen () {
   const { canceled, filePaths } = await dialog.showOpenDialog({
-    properties: ['openFile']
+    properties: ['openFile'],
+    filters: [{name: 'Application', extensions: ['exe','app']}]
   })
   if (!canceled) {
     return filePaths[0]
@@ -64,6 +65,7 @@ app.whenReady().then(() => {
   // IPC test
   ipcMain.on('ping', () => console.log('pong'))
   ipcMain.handle('dialog:openFile', handleFileOpen)
+  ipcMain.handle('game:launch', (_, exePath: string) => launchGame(exePath))
 
   // steamgriddb stuff here
   const sgdbBaseUrl='https://www.steamgriddb.com/api/v2'
@@ -85,6 +87,10 @@ app.whenReady().then(() => {
     })
     const json = await res.json()
     return json.data
+  }
+
+  async function launchGame(exePath: string) {
+    await shell.openPath(exePath)
   }
 
   ipcMain.handle('steamgriddb:search', (_, name: string) => searchGame(name))
