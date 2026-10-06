@@ -25,7 +25,7 @@ export default function LibraryPanel({ games, setGames, setSelectedGame }) {
                 <p className="text-[#173404] text-lg">
                     Library
                 </p>
-                <button className="bg-transparent border border-[#173404] text-[#173404] px-4 py-1 text-sm rounded-md"
+                <button className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-1 text-sm rounded-md"
                 onClick={handleAddGame}
                 >
                     Add Game
@@ -38,7 +38,7 @@ export default function LibraryPanel({ games, setGames, setSelectedGame }) {
                 ? (
                     <div className="flex flex-wrap gap-4 p-4">
                         {games.map(game => (
-                            <GameCard key={game.id} {...game} onClick={() => setSelectedGame(game)} />
+                            <GameCard key={game.id} item={game} onClick={() => setSelectedGame(game)} />
                         ))}
                     </div>
                 )

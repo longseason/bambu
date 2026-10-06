@@ -330,5 +330,4 @@ Plus `.github/workflows/release.yml`: on tag push, a win/mac/linux matrix runnin
 
 ## Git
 
-Commits must be authored as `realmink <214423988+realmink@users.noreply.github.com>`.
-This container's git config defaults to Claude — check it before committing.
+Commits made by claude must be commited by claude, and not under the user.

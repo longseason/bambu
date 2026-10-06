@@ -13,6 +13,8 @@ async function handleFileOpen () {
   })
   if (!canceled) {
     return filePaths[0]
+  } else {
+    return null
   }
 }
 
